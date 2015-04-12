@@ -1,10 +1,60 @@
-<html ng-app>
+<html ng-app="myApp">
 <head>
 	<script src="../script/angular.min.js"></script>
 </head>
 <body>
-    Your name: <input type="text" ng-model="yourname" placeholder="World">
-    <hr>
-    Hello {{yourname || 'World'}}!
+	<div ng-controller="hello">
+	    Your name: <input type="text" ng-model="yourname" placeholder="World">
+	    <hr>
+	    Hello {{yourname || 'World'}}!
+	    <p>{{hello}}</p>
+	</div>
+    <ul ng-controller="myRepeat">
+    	<p>一共有{{phones.length}}组</p>
+    	<input type="text" ng-model="query" placeholder="query">
+    	<li ng-repeat="phone in phones | orderBy:id">
+    		<p>{{$index}}</p>
+    		<p ng-bind="phone.name"></p>
+    		<p>{{phone.id}}</p>
+    	</li>
+    </ul>
+    <table ng-controllr="filter">
+    	<tr>
+    		<th>row number</th>
+    	</tr>
+	    <tr ng-repeat="i in [0, 1, 2, 3.0, 4, 5, 6, 7]">
+	    	<td>
+	    		<p>{{12.9  | number:0 | currency}}</p>
+	    		<p>{{i | plusOne}}</p>
+	    	</td>
+	    </tr>
+	</table>
 </body>
+<script type="text/javascript">
+	var phones = [
+		{id:1, name:'rname1'},
+		{id:3, name:'name3'}, 
+		{id:2, name:'name2'}
+	]
+
+	var myappModule = angular.module('myApp', []);
+	myappModule.filter('plusOne', function() {
+		var plus = function(input) {
+			return input+2;
+		}
+		return plus;
+	})
+	myappModule.controller('myRepeat',
+		function($scope) {
+			$scope.phones = phones;
+	})
+	myappModule.controller('hello',
+	function($scope) {
+		$scope.hello = 'Hello, world!';
+	})
+	myappModule.controller('filter',
+	function($scope) {
+		$scope.hello = 'Hello, world!';
+	})
+</script>
 </html>

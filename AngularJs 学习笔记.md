@@ -28,3 +28,4 @@
 + ng-show, ng-hide
 + ng-class, ng-style
 + ng-src, ng-href
++ filter, currency, number, date, uppercase
