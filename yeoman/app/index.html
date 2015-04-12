@@ -38,11 +38,10 @@
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/C1">C1</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+            <ul class="nav navbar-nav" ng-controller="menuController">
+              <li ng-repeat="menu in menus" ng-class="{active: $route.current.activetab == menu.url}">
+                <a ng-href="#/{{menu.url}}">{{menu.name}}</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -89,6 +88,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/C1.js"></script>
         <!-- endbuild -->
 </body>
 </html>
