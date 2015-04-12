@@ -35,11 +35,11 @@
 + $route, $routeProvider
 	* <b>用法：</b>
 
-		appModule.config('', function($routeProvider) {
-		$routeProvider.
-			when('url', {controller: myController, templateUrl: '/path/to/url'})
-			...
-			otherwise
-		})
+			appModule.config('', function($routeProvider) {
+			$routeProvider.
+				when('url', {controller: myController, templateUrl: '/path/to/url'})
+				...
+				otherwise
+			})
 		
 
