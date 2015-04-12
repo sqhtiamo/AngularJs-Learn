@@ -34,9 +34,12 @@
 	* required, type="number/email" (做了低版本浏览器兼容), ng-maxlength='3'
 + $route, $routeProvider
 	* <b>用法：</b>
-			appModule.config('', function($routeProvider) {
-			$routeProvider.
-				when('url', {controller: myController, templateUrl: '/path/to/url'})
-				...
-				otherwise
-			})
+
+		appModule.config('', function($routeProvider) {
+		$routeProvider.
+			when('url', {controller: myController, templateUrl: '/path/to/url'})
+			...
+			otherwise
+		})
+		
+
