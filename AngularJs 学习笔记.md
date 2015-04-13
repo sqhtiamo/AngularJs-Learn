@@ -41,5 +41,8 @@
 				...
 				otherwise
 			})
-		
 
++ $http
+	* $http.get(url).success(function(){})
++ directive()
++ factory, provider, service
