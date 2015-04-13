@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+var yeomanApp = 
 angular
   .module('yeomanApp', [
     'ngAnimate',
@@ -21,13 +22,31 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        activetab: ''
       })
       .when('/about', {
         templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+        controller: 'AboutCtrl',
+        activetab: 'about'
+      })
+      .when('/C1', {
+        templateUrl: 'views/C1.html',
+        controller: 'C1Ctrl',
+        activetab: 'C1'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/',
+        activetab: ''
       });
   });
+
+yeomanApp.controller('menuController', function($scope, $route) {
+  $scope.menus = [
+    {name:"Home", url:""},
+    {name:"C1", url:"C1"},
+    {name:"about", url:"about"},
+    {name:"Contact", url:""}
+  ];
+  $scope.$route = $route;
+});
