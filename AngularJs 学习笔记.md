@@ -47,5 +47,3 @@
 + directive()
 + factory, provider, service
 
-
-
